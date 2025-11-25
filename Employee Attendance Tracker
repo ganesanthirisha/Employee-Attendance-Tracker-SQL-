@@ -1,0 +1,50 @@
+-- =====================================================
+-- 🕒 EMPLOYEE ATTENDANCE TRACKER (SQL PROJECT)
+-- Author : Your Name
+-- Level  : Beginner / Fresher
+-- =====================================================
+
+-- 1️⃣ Create Database
+CREATE DATABASE AttendanceDB;
+USE AttendanceDB;
+
+-- 2️⃣ Create Table
+CREATE TABLE Attendance (
+    EmpID INT,
+    EmpName VARCHAR(40),
+    Date DATE,
+    Status VARCHAR(10),  -- Present / Absent
+    PRIMARY KEY (EmpID, Date)
+);
+
+-- 3️⃣ Insert Sample Records
+INSERT INTO Attendance (EmpID, EmpName, Date, Status) VALUES
+(101, 'Aarav Sharma', '2025-01-01', 'Present'),
+(102, 'Neha Rao', '2025-01-01', 'Absent'),
+(103, 'Karan Verma', '2025-01-01', 'Present'),
+(101, 'Aarav Sharma', '2025-01-02', 'Absent'),
+(102, 'Neha Rao', '2025-01-02', 'Present'),
+(103, 'Karan Verma', '2025-01-02', 'Present');
+
+-- 4️⃣ View Full Attendance
+SELECT * FROM Attendance;
+
+-- 5️⃣ Check Attendance of a Specific Employee
+SELECT EmpName, Date, Status
+FROM Attendance
+WHERE EmpID = 101;
+
+-- 6️⃣ Count Present Days for Each Employee
+SELECT EmpName, COUNT(*) AS Present_Days
+FROM Attendance
+WHERE Status = 'Present'
+GROUP BY EmpName;
+
+-- 7️⃣ Monthly Attendance Report
+SELECT EmpName, MONTH(Date) AS Month, COUNT(*) AS Total_Days
+FROM Attendance
+GROUP BY EmpName, MONTH(Date);
+
+-- =====================================================
+-- ✨ END OF PROJECT
+-- =====================================================
