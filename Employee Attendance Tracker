@@ -42,7 +42,3 @@ GROUP BY EmpName;
 SELECT EmpName, MONTH(Date) AS Month, COUNT(*) AS Total_Days
 FROM Attendance
 GROUP BY EmpName, MONTH(Date);
-
--- =====================================================
--- ✨ END OF PROJECT
--- =====================================================
